@@ -7,12 +7,23 @@ import {
 import { GetUsersParamsDtop } from './dtos/get-users-param.dto';
 import { AuthService } from 'src/auth/auth.service';
 
+/**
+ * class to connect users table and perform business logic
+ */
 @Injectable()
 export class UsersService {
   constructor(
     @Inject(forwardRef(() => AuthService))
     private readonly authService: AuthService,
   ) {}
+  
+  /**
+   * method to get all users
+   * @param getUsersParamsDtop 
+   * @param limit 
+   * @param page 
+   * @returns 
+   */
   public async findAll(
     getUsersParamsDtop: GetUsersParamsDtop,
     limit: number,

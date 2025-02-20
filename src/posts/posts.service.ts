@@ -11,7 +11,7 @@ export class PostsService {
       { id: 'order1', userId, item: 'Laptop', user },
       { id: 'order2', userId, item: 'Phone', user }, 
     ];
-  }
+  } 
 
   public async createPost(body: any) {
     return body;

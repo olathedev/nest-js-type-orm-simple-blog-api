@@ -6,6 +6,9 @@ import {
 } from '@nestjs/common';
 import { GetUsersParamsDtop } from './dtos/get-users-param.dto';
 import { AuthService } from 'src/auth/auth.service';
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 /**
  * class to connect users table and perform business logic
@@ -15,14 +18,17 @@ export class UsersService {
   constructor(
     @Inject(forwardRef(() => AuthService))
     private readonly authService: AuthService,
+
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
   ) {}
-  
+
   /**
    * method to get all users
-   * @param getUsersParamsDtop 
-   * @param limit 
-   * @param page 
-   * @returns 
+   * @param getUsersParamsDtop
+   * @param limit
+   * @param page
+   * @returns
    */
   public async findAll(
     getUsersParamsDtop: GetUsersParamsDtop,

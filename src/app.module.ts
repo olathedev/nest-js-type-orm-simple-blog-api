@@ -10,7 +10,7 @@ import { User } from './users/user.entity';
 @Module({
   imports: [
     UsersModule,
-    PostsModule,
+    PostsModule, 
     AuthModule,
     TypeOrmModule.forRootAsync({
       imports: [],
@@ -24,7 +24,7 @@ import { User } from './users/user.entity';
         database: 'blog-application',
         entities: [User],
         synchronize: true,
-      })
+      }),
     }),
   ],
   controllers: [AppController],
